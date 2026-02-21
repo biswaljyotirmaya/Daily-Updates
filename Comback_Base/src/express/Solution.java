@@ -12,7 +12,6 @@ class Solution {
 		int start = 0;
 
 		for (int i = 1; i <= nums.length; i++) {
-			// range breaks OR end of array
 			if (i == nums.length || nums[i] != nums[i - 1] + 1) {
 				if (start == i - 1) {
 					list.add(String.valueOf(nums[start]));

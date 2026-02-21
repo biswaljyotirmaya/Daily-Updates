@@ -1,11 +1,5 @@
 package practice;
 
-import java.util.stream.Stream;
-import java.util.stream.Stream.Builder;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.function.Consumer;
-
 public class StreamFactoryMethods {
 	public static void main(String[] args) {
 
