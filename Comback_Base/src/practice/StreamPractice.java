@@ -2,6 +2,7 @@ package practice;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamPractice {
 
@@ -266,10 +267,15 @@ public class StreamPractice {
 		// 36. Employee with Longest Name:
 		// Find employee whose name is longest.
 
-		list.stream().max(Comparator.comparingInt(e -> e.getName().length())).ifPresent(System.out::println);
+//		list.stream().max(Comparator.comparingInt(e -> e.getName().length())).ifPresent(System.out::println);
 
 		// 37. Salary Sum per Age:
 		// Calculate total salary for each age.
+		list.stream().collect(Collectors.groupingBy(Employee::getAge, Collectors.summingDouble(Employee::getSalary)))
+				.forEach((age, salary) -> {
+					System.out.print("Age:" + age + "-> ");
+					System.out.println(salary);
+				});
 
 		// 38. Sort by Age then Salary:
 		// Sort employees by age asc, salary desc.
