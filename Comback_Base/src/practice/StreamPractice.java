@@ -305,6 +305,7 @@ public class StreamPractice {
 
 		// 42. Unique Employee Names:
 		// Retrieve employees with unique names.
+		list.stream().map(Employee::getName).distinct().forEach(System.out::println);
 
 		// 43. Names in Uppercase:
 		// Find employees whose names are fully uppercase.
