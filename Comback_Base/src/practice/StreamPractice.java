@@ -305,10 +305,11 @@ public class StreamPractice {
 
 		// 42. Unique Employee Names:
 		// Retrieve employees with unique names.
-		list.stream().map(Employee::getName).distinct().forEach(System.out::println);
+//		list.stream().map(Employee::getName).distinct().forEach(System.out::println);
 
 		// 43. Names in Uppercase:
 		// Find employees whose names are fully uppercase.
+		list.stream().filter(emp -> emp.getName().equals(emp.getName().toUpperCase())).forEach(System.out::println);
 
 		// 44. Salary Range per Age:
 		// Find min & max salary per age group.
