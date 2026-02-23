@@ -2,6 +2,7 @@ package practice;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamPractice {
@@ -271,23 +272,36 @@ public class StreamPractice {
 
 		// 37. Salary Sum per Age:
 		// Calculate total salary for each age.
-		list.stream().collect(Collectors.groupingBy(Employee::getAge, Collectors.summingDouble(Employee::getSalary)))
-				.forEach((age, salary) -> {
-					System.out.print("Age:" + age + "-> ");
-					System.out.println(salary);
-				});
+//		list.stream().collect(Collectors.groupingBy(Employee::getAge, Collectors.summingDouble(Employee::getSalary)))
+//				.forEach((age, salary) -> {
+//					System.out.print("Age:" + age + "-> ");
+//					System.out.println(salary);
+//				});
 
 		// 38. Sort by Age then Salary:
 		// Sort employees by age asc, salary desc.
+//		list.stream()
+//				.sorted(Comparator.comparing(Employee::getAge)
+//						.thenComparing(Comparator.comparing(Employee::getSalary).reversed()))
+//				.forEach(System.out::println);
 
 		// 39. Names with Multiple Words:
 		// Find employees whose names have more than one word.
+//		list.stream().filter(emp -> emp.getName().split("\\s+").length > 1).forEach(System.out::println);
 
 		// 40. Two Highest Paid Female Employees:
 		// Find top 2 highest paid female employees.
+//		list.stream().filter(emp -> emp.getGender().equalsIgnoreCase("female"))
+//				.sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(2).forEach(System.out::println);
 
 		// 41. Highest Salary per Gender:
 		// Find highest paid employee per gender.
+//		list.stream().collect(
+//				Collectors.groupingBy(Employee::getGender, Collectors.maxBy(Comparator.comparing(Employee::getSalary))))
+//				.forEach((gender, l) -> {
+//					System.out.println("\nThe maximum salary from " + gender + " is: ");
+//					System.out.println(l);
+//				});
 
 		// 42. Unique Employee Names:
 		// Retrieve employees with unique names.
