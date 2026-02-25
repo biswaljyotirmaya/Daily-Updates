@@ -1,9 +1,6 @@
 package practice;
 
-import java.util.DoubleSummaryStatistics;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class StreamPractice {
 
@@ -313,18 +310,25 @@ public class StreamPractice {
 
 		// 44. Salary Range per Age:
 		// Find min & max salary per age group.
-		Map<Integer, DoubleSummaryStatistics> collect = list.stream()
-				.collect(Collectors.groupingBy(Employee::getAge, Collectors.summarizingDouble(Employee::getSalary)));
-		collect.forEach((x, y) -> {
-			System.out.println(x + " max " + y.getMax() + " min " + y.getMin() + " " + y.getSum());
-		});
-		System.out.println((collect));
+//		Map<Integer, DoubleSummaryStatistics> collect = list.stream()
+//				.collect(Collectors.groupingBy(Employee::getAge, Collectors.summarizingDouble(Employee::getSalary)));
+//		collect.forEach((x, y) -> {
+//			System.out.println(x + " max " + y.getMax() + " min " + y.getMin() + " " + y.getSum());
+//		});
+//		System.out.println((collect));
+
 		// list.stream().collect(Collectors.groupingBy(Employee::getAge,Collectors.toMap(x->Collectors.maxBy(x->x.getSalary()),x->Collectors.minBy(x->x.getSalary()))));
+
 		// 45. Filter by First Name Initial:
 		// Retrieve employees whose names start with a specific letter.
+//		list.stream().filter(emp -> emp.getName().startsWith("A")).forEach(System.out::println);
 
 		// 46. Unique Salaries per Age:
 		// Group employees by age with unique salaries.
+//		list.stream().collect(Collectors.groupingBy(Employee::getAge,Collectors.mapping(Employee::getAge,))).forEach((emp, emps) -> {
+//			System.out.println(emp + "-> ");
+//			emps.forEach(System.out::println);
+//		});
 
 		// 47. Employees with Same Salary:
 		// Identify employees sharing the same salary.
