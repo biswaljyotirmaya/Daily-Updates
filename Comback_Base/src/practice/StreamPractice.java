@@ -1,6 +1,7 @@
 package practice;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamPractice {
 
@@ -325,13 +326,16 @@ public class StreamPractice {
 
 		// 46. Unique Salaries per Age:
 		// Group employees by age with unique salaries.
-//		list.stream().collect(Collectors.groupingBy(Employee::getAge,Collectors.mapping(Employee::getAge,))).forEach((emp, emps) -> {
-//			System.out.println(emp + "-> ");
-//			emps.forEach(System.out::println);
-//		});
+		list.stream().collect(
+				Collectors.groupingBy(Employee::getAge, Collectors.mapping(Employee::getSalary, Collectors.toSet())))
+				.forEach((emp, emps) -> {
+					System.out.println(emp + "-> ");
+					emps.forEach(System.out::println);
+				});
 
 		// 47. Employees with Same Salary:
 		// Identify employees sharing the same salary.
+		list.stream().allMatch(Employee::getSalary).forEach(System.out::println);
 
 		// 48. Shortest Name Among Males:
 		// Find male employee with shortest name.
