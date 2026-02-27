@@ -335,7 +335,7 @@ public class StreamPractice {
 
 		// 47. Employees with Same Salary:
 		// Identify employees sharing the same salary.
-		list.stream().allMatch(Employee::getSalary).forEach(System.out::println);
+//		list.stream().allMatch(Employee::getSalary).forEach(System.out::println);
 
 		// 48. Shortest Name Among Males:
 		// Find male employee with shortest name.
