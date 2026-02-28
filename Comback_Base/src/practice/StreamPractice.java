@@ -2,10 +2,7 @@ package practice;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamPractice {
 
@@ -367,61 +364,74 @@ public class StreamPractice {
 
 		// 50. Oldest Employee with Lowest Salary:
 		// Find the oldest employee having the lowest salary.
-		Employee employee = list.stream()
-				.min(Comparator.comparingInt(Employee::getAge).reversed().thenComparingDouble(Employee::getSalary))
-				.orElseThrow();
-
-		System.out.println("Oldest Employee with Lowest Salary is: " + employee);
+//		Employee employee = list.stream()
+//				.min(Comparator.comparingInt(Employee::getAge).reversed().thenComparingDouble(Employee::getSalary))
+//				.orElseThrow();
+//
+//		System.out.println("Oldest Employee with Lowest Salary is: " + employee);
 		// ------------------------------------------------------------
 
 		// 51. Filter Employees by Gender:
 		// Retrieve a list of all female employees.
+//		list.stream().filter(emp -> emp.getGender().equalsIgnoreCase("female")).forEach(System.out::println);
 
 		// ------------------------------------------------------------
 
 		// 52. Filter Employees by Age:
 		// Get a list of employees older than 30 years.
-
+//		list.stream().filter(emp -> emp.getAge() > 30).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 53. Filter Employees by Salary:
 		// Find employees with a salary greater than $50,000.
-
+//		list.stream().filter(emp -> emp.getSalary() > 50000).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 54. Map Employee Names:
 		// Create a list of employee names (Strings).
-
+//		list.stream().map(Employee::getName).collect(Collectors.toList()).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 55. Calculate Average Salary:
 		// Calculate the average salary of all employees.
-
+//		OptionalDouble average = list.stream().mapToDouble(Employee::getSalary).average();
+//		System.out.println("The average of all the employees are: " + average.getAsDouble());
 		// ------------------------------------------------------------
 
 		// 56. Find Maximum Salary:
 		// Find the employee with the highest salary.
-
+//		double maxSal = list.stream().mapToDouble(Employee::getSalary).max().getAsDouble();
+//		System.out.println("The maximum salary from all the employees is: " + maxSal);
 		// ------------------------------------------------------------
 
 		// 57. Group Employees by Gender:
 		// Group employees by gender and return a map
 		// with gender as the key and list of employees as the value.
-
+//		list.stream().collect(Collectors.groupingBy(Employee::getGender)).forEach((gender, emplist) -> {
+//			System.out.println("\n" + gender + "-> ");
+//			emplist.forEach(System.out::println);
+//		});
 		// ------------------------------------------------------------
 
 		// 58. Count Male and Female Employees:
 		// Count the number of male and female employees separately.
+//		list.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()))
+//				.forEach((gender, count) -> {
+//					System.out.println("Thre are " + count + " " + gender + " employees.");
+//				});
 
 		// ------------------------------------------------------------
 
 		// 59. Sum of All Salaries:
 		// Calculate the total sum of salaries for all employees.
+//		System.out.println(
+//				"The total salary of all the empployees is: " + list.stream().mapToDouble(Employee::getSalary).sum());
 
 		// ------------------------------------------------------------
 
 		// 60. Sort Employees by Name:
 		// Sort the employees by their names in alphabetical order.
+		list.stream().sorted(Comparator.comparing(Employee::getName)).forEach(System.out::println);
 
 		// ------------------------------------------------------------
 
