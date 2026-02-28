@@ -1,6 +1,7 @@
 package practice;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -448,29 +449,46 @@ public class StreamPractice {
 
 		// 62. Retrieve Employees with Unique Names:
 		// Find employees whose names are unique (no duplicates).
-		list.stream().collect(Collectors.groupingBy(Employee::getName)).values().stream()
-				.filter(group -> group.size() == 1).flatMap(List::stream).forEach(System.out::println);
+//		list.stream().collect(Collectors.groupingBy(Employee::getName)).values().stream()
+//				.filter(group -> group.size() == 1).flatMap(List::stream).forEach(System.out::println);
 
 		// ------------------------------------------------------------
 
 		// 63. Names in Uppercase:
 		// Retrieve employees whose names are entirely in uppercase.
-
+//		list.stream().filter(emp -> emp.getName().toUpperCase().equals(emp.getName())).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 64. Salary Range per Age Group:
 		// Calculate min and max salary for each age group.
+//		list.stream().collect(Collectors.groupingBy(emp -> {
+//			int age = emp.getAge();
+//			if (age <= 20)
+//				return "Below 20";
+//			return (age / 10) * 10 + "-" + ((age / 10) * 10 + 9);
+//		}, Collectors.summarizingDouble(Employee::getSalary))).forEach((group, stats) -> {
+//			System.out.println(group);
+//			System.out.println("Min salary: " + stats.getMin() + ", Max salary: " + stats.getMax());
+//		});
 
 		// ------------------------------------------------------------
 
 		// 65. Filter by First Name Initial:
 		// Retrieve employees whose names start with a specific letter.
-
+		list.stream().filter(e -> e.getName().startsWith("A")).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 66. Unique Salaries per Age:
 		// Group employees by age and list only unique salaries.
-
+		list.stream().collect(Collectors.groupingBy(emp -> {
+			int age = emp.getAge();
+			if (age <= 20)
+				return "Below 20";
+			return (age / 10) * 10 + " - " + ((age / 10) * 10 + 9);
+		}, Collectors.mapping(Employee::getSalary, Collectors.toSet()))).forEach((ageGroup, salaries) -> {
+			System.out.println(ageGroup);
+			System.out.println(salaries);
+		});
 		// ------------------------------------------------------------
 
 		// 67. Employees with Same Salary:
