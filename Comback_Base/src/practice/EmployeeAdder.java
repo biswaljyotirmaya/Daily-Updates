@@ -12,7 +12,7 @@ public class EmployeeAdder {
 		employees.add(new Employee("Aarav Sharma", 25, 45000.0, "Male"));
 		employees.add(new Employee("Ananya Verma", 26, 48000.0, "Female"));
 		employees.add(new Employee("Rohit Kumar", 25, 52000.0, "Male"));
-		employees.add(new Employee("Priya Singh", 28, 54000.0, "Female"));
+		employees.add(new Employee("Priya Singh", 28, 52000.0, "Female"));
 		employees.add(new Employee("Karan Mehta", 29, 60000.0, "Male"));
 		employees.add(new Employee("Sneha Patel", 31, 62000.0, "Female"));
 		employees.add(new Employee("VIKRAM RAO", 33, 65000.0, "Male"));

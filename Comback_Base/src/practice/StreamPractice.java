@@ -1,7 +1,11 @@
 package practice;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamPractice {
 
@@ -326,26 +330,48 @@ public class StreamPractice {
 
 		// 46. Unique Salaries per Age:
 		// Group employees by age with unique salaries.
-		list.stream().collect(
-				Collectors.groupingBy(Employee::getAge, Collectors.mapping(Employee::getSalary, Collectors.toSet())))
-				.forEach((emp, emps) -> {
-					System.out.println(emp + "-> ");
-					emps.forEach(System.out::println);
-				});
+//		list.stream().collect(
+//				Collectors.groupingBy(Employee::getAge, Collectors.mapping(Employee::getSalary, Collectors.toSet())))
+//				.forEach((emp, emps) -> {
+//					System.out.println(emp + "-> ");
+//					emps.forEach(System.out::println);
+//				});
 
 		// 47. Employees with Same Salary:
 		// Identify employees sharing the same salary.
-//		list.stream().allMatch(Employee::getSalary).forEach(System.out::println);
-
+//		List<Employee> collect = list.stream().collect(Collectors.groupingBy(Employee::getSalary)).entrySet().stream()
+//				.filter(e -> e.getValue().size() > 1).flatMap(e -> e.getValue().stream()).collect(Collectors.toList());
+//
+//		if (collect.isEmpty()) {
+//			System.out.println("Tehre is no employees with same salaries.");
+//		} else {
+//			collect.forEach(System.out::println);
+//		}
 		// 48. Shortest Name Among Males:
 		// Find male employee with shortest name.
+//		String sortestName = list.stream().map(Employee::getName).min(Comparator.comparing(e -> e.toString().length()))
+//				.orElse("Nothing");
+//		System.out.println(sortestName);
 
 		// 49. Most Common Salary:
 		// Find salary occurring most frequently.
 
+//		Optional<Map.Entry<Double, List<Employee>>> maxGroup = list.stream()
+//				.collect(Collectors.groupingBy(Employee::getSalary)).entrySet().stream()
+//				.max(Comparator.comparing(e -> e.getValue().size()));
+//
+//		maxGroup.ifPresent(entry -> {
+//			System.out.println("Salary: " + entry.getKey());
+//			entry.getValue().forEach(System.out::println);
+//		});
+
 		// 50. Oldest Employee with Lowest Salary:
 		// Find the oldest employee having the lowest salary.
+		Employee employee = list.stream()
+				.min(Comparator.comparingInt(Employee::getAge).reversed().thenComparingDouble(Employee::getSalary))
+				.orElseThrow();
 
+		System.out.println("Oldest Employee with Lowest Salary is: " + employee);
 		// ------------------------------------------------------------
 
 		// 51. Filter Employees by Gender:
