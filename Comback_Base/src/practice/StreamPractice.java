@@ -384,7 +384,7 @@ public class StreamPractice {
 
 		// 53. Filter Employees by Salary:
 		// Find employees with a salary greater than $50,000.
-//		list.stream().filter(emp -> emp.getSalary() > 50000).forEach(System.out::println);
+//		list.stream().filter(emp -> emp.getSalary() > 50_000).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 54. Map Employee Names:
@@ -431,17 +431,25 @@ public class StreamPractice {
 
 		// 60. Sort Employees by Name:
 		// Sort the employees by their names in alphabetical order.
-		list.stream().sorted(Comparator.comparing(Employee::getName)).forEach(System.out::println);
+//		list.stream().sorted(Comparator.comparing(Employee::getName)).forEach(System.out::println);
 
 		// ------------------------------------------------------------
 
 		// 61. Highest Salary per Gender:
 		// Find the employee with the highest salary for each gender.
+//		list.stream().collect(
+//				Collectors.groupingBy(Employee::getGender, Collectors.maxBy(Comparator.comparing(Employee::getSalary))))
+//				.forEach((gender, maxSal) -> {
+//					System.out.println(gender);
+//					System.out.println(maxSal.get());
+//				});
 
 		// ------------------------------------------------------------
 
 		// 62. Retrieve Employees with Unique Names:
 		// Find employees whose names are unique (no duplicates).
+		list.stream().collect(Collectors.groupingBy(Employee::getName)).values().stream()
+				.filter(group -> group.size() == 1).flatMap(List::stream).forEach(System.out::println);
 
 		// ------------------------------------------------------------
 
