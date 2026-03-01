@@ -532,27 +532,35 @@ public class StreamPractice {
 
 		// 72. Employee with Longest Name:
 		// Find the employee whose name has the maximum length.
-		list.stream().max((o1, o2) -> o1.getName().length() - o2.getName().length()).ifPresent(System.out::println);
+//		list.stream().max((o1, o2) -> o1.getName().length() - o2.getName().length()).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 73. Palindromic Employee Names:
 		// Retrieve employees whose names are palindromes.
-
+//		list.stream()
+//				.filter(emp -> emp.getName().toLowerCase()
+//						.equals(new StringBuilder(emp.getName().toLowerCase()).reverse().toString()))
+//				.forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 74. Sum of Salaries for Odd-Aged Employees:
 		// Calculate total salary of employees whose age is odd.
-
+//		double sum = list.stream().filter(emp -> emp.getAge() % 2 != 0).mapToDouble(Employee::getSalary).sum();
+//		System.out.println("Sum of Salaries for Odd-Aged Employees: " + sum);
 		// ------------------------------------------------------------
 
 		// 75. Highest Paid Employee with Name Containing "Smith":
 		// Find the highest salary employee whose name contains "Smith".
-
+//		list.stream().filter(emp -> emp.getName().contains("Smith"))
+//				.max(Comparator.comparingDouble(Employee::getSalary)).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 76. Group Employees by First Letter of Name:
 		// Group employees by the first character of their names.
-
+		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().charAt(0))).forEach((letter, emp) -> {
+			System.out.println("\nNames starts with: " + letter);
+			emp.forEach(System.out::println);
+		});
 		// ------------------------------------------------------------
 
 		// 77. Employee with Shortest Name:
