@@ -3,6 +3,8 @@ package practice;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamPractice {
@@ -475,50 +477,62 @@ public class StreamPractice {
 
 		// 65. Filter by First Name Initial:
 		// Retrieve employees whose names start with a specific letter.
-		list.stream().filter(e -> e.getName().startsWith("A")).forEach(System.out::println);
+//		list.stream().filter(e -> e.getName().startsWith("A")).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 66. Unique Salaries per Age:
 		// Group employees by age and list only unique salaries.
-		list.stream().collect(Collectors.groupingBy(emp -> {
-			int age = emp.getAge();
-			if (age <= 20)
-				return "Below 20";
-			return (age / 10) * 10 + " - " + ((age / 10) * 10 + 9);
-		}, Collectors.mapping(Employee::getSalary, Collectors.toSet()))).forEach((ageGroup, salaries) -> {
-			System.out.println(ageGroup);
-			System.out.println(salaries);
-		});
+//		list.stream().collect(Collectors.groupingBy(emp -> {
+//			int age = emp.getAge();
+//			if (age <= 20)
+//				return "Below 20";
+//			return (age / 10) * 10 + " - " + ((age / 10) * 10 + 9);
+//		}, Collectors.mapping(Employee::getSalary, Collectors.toSet()))).forEach((ageGroup, salaries) -> {
+//			System.out.println(ageGroup);
+//			System.out.println(salaries);
+//		});
 		// ------------------------------------------------------------
 
 		// 67. Employees with Same Salary:
 		// Identify employees who share the same salary.
+//		list.stream().collect(Collectors.groupingBy(Employee::getSalary)).forEach((salary, emps) -> {
+//			System.out.println("Salary: " + salary + "->");
+//			emps.forEach(System.out::println);
+//		});
 
 		// ------------------------------------------------------------
 
 		// 68. Shortest Name Among Male Employees:
 		// Find the male employee with the shortest name.
-
+//		list.stream().filter(emp -> emp.getGender().equalsIgnoreCase("male"))
+//				.min(Comparator.comparing(emp -> emp.getName().length())).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 69. Most Common Salary:
 		// Determine the salary value that appears most frequently.
+//		list.stream().collect(Collectors.groupingBy(Employee::getSalary, Collectors.counting())).entrySet().stream()
+//				.max(Map.Entry.comparingByValue()).ifPresent(entry -> System.out.println("The most common salay is: "
+//						+ entry.getKey() + " and it is shared by, " + entry.getValue() + " person"));
 
 		// ------------------------------------------------------------
 
 		// 70. Oldest Employee with Lowest Salary:
 		// Find the oldest employee having the lowest salary.
-
+//		list.stream()
+//				.max(Comparator.comparing(Employee::getAge)
+//						.thenComparing(Comparator.comparing(Employee::getSalary).reversed()))
+//				.ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 71. Most Common Age:
 		// Determine the age that occurs most frequently.
-
+//		list.stream().collect(Collectors.groupingBy(Employee::getSalary, Collectors.counting())).entrySet().stream()
+//				.max(Map.Entry.comparingByValue()).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 72. Employee with Longest Name:
 		// Find the employee whose name has the maximum length.
-
+		list.stream().max((o1, o2) -> o1.getName().length() - o2.getName().length()).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 73. Palindromic Employee Names:
