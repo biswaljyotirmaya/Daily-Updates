@@ -1,10 +1,7 @@
 package practice;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamPractice {
@@ -557,30 +554,34 @@ public class StreamPractice {
 
 		// 76. Group Employees by First Letter of Name:
 		// Group employees by the first character of their names.
-		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().charAt(0))).forEach((letter, emp) -> {
-			System.out.println("\nNames starts with: " + letter);
-			emp.forEach(System.out::println);
-		});
+//		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().charAt(0))).forEach((letter, emp) -> {
+//			System.out.println("\nNames starts with: " + letter);
+//			emp.forEach(System.out::println);
+//		});
 		// ------------------------------------------------------------
 
 		// 77. Employee with Shortest Name:
 		// Find the employee whose name length is minimum.
-
+//		list.stream().min(Comparator.comparing(emp -> emp.getName().length())).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
-		// 78. Average Salary of Names Starting with "E":
-		// Calculate average salary of employees whose names start with 'E'.
-
+		// 78. Average Salary of Names Starting with "S":
+		// Calculate average salary of employees whose names start with 'S'.
+//		list.stream().filter(emp -> emp.getName().toLowerCase().startsWith("s")).mapToDouble(Employee::getSalary)
+//				.average().ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 79. Filter Employees by Custom Age Range:
 		// Retrieve employees whose age lies between 25 and 35.
-
+//		list.stream().filter(emp -> emp.getAge() > 25 && emp.getAge() < 35).forEach(System.out::println);
 		// ------------------------------------------------------------
 
 		// 80. Group Employees by First Two Letters of Name:
 		// Group employees using the first two characters of names.
-
+//		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().substring(0, 2))).entrySet().forEach(entry -> {
+//			System.out.println(entry.getKey());
+//			entry.getValue().forEach(System.out::println);
+//		});
 		// ------------------------------------------------------------
 
 		// 81. Longest Name with Salary Below $70,000:
