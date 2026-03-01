@@ -586,22 +586,30 @@ public class StreamPractice {
 
 		// 81. Longest Name with Salary Below $70,000:
 		// Find employee with longest name and salary below 70k.
-
+//		list.stream().filter(emp -> emp.getSalary() < 70000).map(Employee::getName)
+//				.max(Comparator.comparing(name -> name.length())).ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 82. Average Salary of Names Ending with "son":
 		// Calculate average salary of employees whose names end with "son".
-
+//		list.stream().filter(emp -> emp.getName().endsWith("son")).mapToDouble(Employee::getSalary).average()
+//				.ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 		// 83. Group Employees by Word Count in Name:
 		// Group employees based on number of words in their names.
-
+//		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().split("\s").length)).forEach((len, emp) -> {
+//			System.out.println(len);
+//			emp.forEach(System.out::println);
+//		});
 		// ------------------------------------------------------------
 
 		// 84. Average Salary of Names Containing Both 'A' and 'E':
 		// Calculate average salary of employees whose names contain both A and E.
-
+		list.stream().filter(emp -> {
+			String name = emp.getName().toUpperCase();
+			return name.contains("A") || name.contains("E");
+		}).mapToDouble(Employee::getSalary).average().ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
 	}
