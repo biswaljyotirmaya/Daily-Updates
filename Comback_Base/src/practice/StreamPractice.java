@@ -1,8 +1,6 @@
 package practice;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class StreamPractice {
 
@@ -598,7 +596,7 @@ public class StreamPractice {
 
 		// 83. Group Employees by Word Count in Name:
 		// Group employees based on number of words in their names.
-//		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().split("\s").length)).forEach((len, emp) -> {
+//		list.stream().collect(Collectors.groupingBy(emp -> emp.getName().split("\\s+").length)).forEach((len, emp) -> {
 //			System.out.println(len);
 //			emp.forEach(System.out::println);
 //		});
@@ -608,7 +606,7 @@ public class StreamPractice {
 		// Calculate average salary of employees whose names contain both A and E.
 		list.stream().filter(emp -> {
 			String name = emp.getName().toUpperCase();
-			return name.contains("A") || name.contains("E");
+			return name.contains("A") && name.contains("E");
 		}).mapToDouble(Employee::getSalary).average().ifPresent(System.out::println);
 		// ------------------------------------------------------------
 
