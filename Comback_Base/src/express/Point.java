@@ -1,5 +1,8 @@
 package express;
 
+import java.util.Arrays;
+import java.util.List;
+
 public record Point(int x, int y) implements A, B, C {
 
 	public void callAll() {
@@ -18,6 +21,7 @@ public record Point(int x, int y) implements A, B, C {
 		for (int i = 0; i <= 5; i++) {
 		    System.out.print("\rCount: " + i);
 		    Thread.sleep(500);
+		    List<String> asList = Arrays.asList(null);
 		}
 	}
 }
