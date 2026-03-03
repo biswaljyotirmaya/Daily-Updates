@@ -62,7 +62,7 @@ public class Sorting {
 		// Sorting a map in reverse order of values
 		idToNameMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
 				.forEach(entry -> System.out.println(entry.getKey() + " -> " + entry.getValue()));
-		System.out.println();
-
+		System.out.println();		
+			
 	}
 }
