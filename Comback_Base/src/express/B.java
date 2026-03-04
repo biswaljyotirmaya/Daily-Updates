@@ -1,7 +1,7 @@
 package express;
 
 public interface B {
-	public default void printB() {
-		System.out.println("B ka ma ka");
+	public default float  print() {
+		return 1.0f;
 	}
 }
