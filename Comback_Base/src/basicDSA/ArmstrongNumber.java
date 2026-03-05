@@ -1,16 +1,17 @@
 package basicDSA;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class ArmstrongNumber {
 	public static boolean isArmstrong(int num) {
-		int original=num;
+		int original = num;
 		int length = Integer.toString(num).length();
 		int sum = 0;
 		while (num > 0) {
 			int digit = num % 10;
 			sum += Math.pow(digit, length);
-			num=num/10;
+			num = num / 10;
 		}
 		return sum == original;
 	}
@@ -26,5 +27,6 @@ public class ArmstrongNumber {
 			System.out.println(num + " is not a armstrong number!");
 		}
 		sc.close();
+		Stack<Integer> stack = new Stack<>();
 	}
 }
