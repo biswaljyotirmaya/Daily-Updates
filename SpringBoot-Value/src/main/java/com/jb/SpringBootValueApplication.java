@@ -2,6 +2,8 @@ package com.jb;
 
 import com.jb.model.Student;
 import com.jb.service.CalculationService;
+import com.jb.service.CityService;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +19,8 @@ public class SpringBootValueApplication {
 
 		CalculationService bean2 = ctx.getBean("calculationService", CalculationService.class);
 		System.out.println(bean2.showCalculations());
+		CityService bean3 = ctx.getBean("cityservice", CityService.class);
+		bean3.printCities();
 	}
 
 }
