@@ -17,7 +17,7 @@ public class Comp1 {
 	private String message;
 
 	public Comp1() {
-		System.out.println("Comp1 constructed and it is ready to use now!");
+		System.out.println("Comp1 constructed and it is ready to use now!"); 
 	}
 
 	@PostConstruct
